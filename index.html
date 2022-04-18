@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script
+  src="https://code.jquery.com/jquery-3.6.0.js"
+  integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+  crossorigin="anonymous"></script>
+  <script src="./source.js"></script>
+  <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+</head>
+<body>
+
+<button id="wlwl_popup_canvas">quay quà</button>
+
+
+<div class="wlwl-overlay" style="display: none;"></div>
+<div class="wlwl_lucky_wheel_content" style="max-width: 1032px;">
+    <div class="wlwl-background-effect-snowflakes" aria-hidden="true">
+       <div class="wlwl-background-effect-snowflake">
+          ❅
+       </div>
+       <div class="wlwl-background-effect-snowflake">
+          ❅
+       </div>
+       <div class="wlwl-background-effect-snowflake">
+          ❆
+       </div>
+       <div class="wlwl-background-effect-snowflake">
+          <img draggable="false" role="img" class="emoji" alt="❄" src="https://s.w.org/images/core/emoji/13.1.0/svg/2744.svg">
+       </div>
+       <div class="wlwl-background-effect-snowflake">
+          ❅
+       </div>
+       <div class="wlwl-background-effect-snowflake">
+          ❆
+       </div>
+       <div class="wlwl-background-effect-snowflake">
+          <img draggable="false" role="img" class="emoji" alt="❄" src="https://s.w.org/images/core/emoji/13.1.0/svg/2744.svg">
+       </div>
+       <div class="wlwl-background-effect-snowflake">
+          ❅
+       </div>
+       <div class="wlwl-background-effect-snowflake">
+          ❆
+       </div>
+       <div class="wlwl-background-effect-snowflake">
+          <img draggable="false" role="img" class="emoji" alt="❄" src="https://s.w.org/images/core/emoji/13.1.0/svg/2744.svg">
+       </div>
+       <div class="wlwl-background-effect-snowflake">
+          ❅
+       </div>
+       <div class="wlwl-background-effect-snowflake">
+          ❅
+       </div>
+       <div class="wlwl-background-effect-snowflake">
+          ❆
+       </div>
+       <div class="wlwl-background-effect-snowflake">
+          <img draggable="false" role="img" class="emoji" alt="❄" src="https://s.w.org/images/core/emoji/13.1.0/svg/2744.svg">
+       </div>
+       <div class="wlwl-background-effect-snowflake">
+          ❅
+       </div>
+       <div class="wlwl-background-effect-snowflake">
+          ❆
+       </div>
+       <div class="wlwl-background-effect-snowflake">
+          <img draggable="false" role="img" class="emoji" alt="❄" src="https://s.w.org/images/core/emoji/13.1.0/svg/2744.svg">
+       </div>
+       <div class="wlwl-background-effect-snowflake">
+          ❅
+       </div>
+       <div class="wlwl-background-effect-snowflake">
+          ❆
+       </div>
+       <div class="wlwl-background-effect-snowflake">
+          <img draggable="false" role="img" class="emoji" alt="❄" src="https://s.w.org/images/core/emoji/13.1.0/svg/2744.svg">
+       </div>
+    </div>
+    <div class="wheel-content-wrapper" id="wheel-content-wrapper">
+       <div class="wheel_content_left">
+          <div class="wlwl_wheel_spin" style="width: 432px; height: 432px;">
+             <canvas id="wlwl_canvas" width="540" height="540" style="width: 432px; height: 432px;">
+             </canvas>
+             <canvas id="wlwl_canvas1" class="" width="540" height="540" style="width: 432px; height: 432px;">
+             </canvas>
+             <canvas id="wlwl_canvas2" width="540" height="540" style="width: 432px; height: 432px;">
+             </canvas>
+             <div class="wlwl_wheel_spin_container">
+                <div class="wlwl_pointer_before"></div>
+                <div class="wlwl_pointer_content">
+                   <span class="wlwl-location wlwl_pointer "></span>
+                </div>
+             </div>
+          </div>
+       </div>
+       <div class="wheel_content_right">
+          <div class="wheel_description">
+             <h2><span style="color: #ffffff">VÒNG QUAY MAY MẮN</span></h2>
+          </div>
+          <div class="wlwl-congratulations-effect">
+             <div class="wlwl-congratulations-effect-before"></div>
+             <div class="wlwl-congratulations-effect-after"></div>
+          </div>
+          <div class="wlwl_user_lucky">
+             <div class="wlwl_field_name_wrap">
+                <span id="wlwl_error_name"></span>
+                <input type="text" class="wlwl_field_input wlwl_field_name" name="wlwl_player_name" placeholder="Please enter your name" id="wlwl_player_name">
+             </div>
+             <div class="wlwl_field_mobile_wrap">
+                <span id="wlwl_error_mobile"></span>
+                <input type="tel" class="wlwl_field_input wlwl_field_mobile" name="wlwl_player_mobile" placeholder="Please enter your phone number" id="wlwl_player_mobile">
+             </div>
+             <span class="wlwl_chek_mail wlwl_spin_button button-primary" id="wlwl_spin_wheel">Quay thưởng</span>
+
+          </div>
+       </div>
+    </div>
+    <div class="wlwl-close-wheel"><span class="wlwl-cancel"></span></div>
+    <div class="wlwl-hide-after-spin">
+       <span class="wlwl-cancel"></span>
+    </div>
+    <div class="color_palette">
+       <div class="color-palette-item" data-background="#e23e57">
+          <div class="wlwl_color_palette" data-color_code="#ffcdd2" style="background-color: #ffcdd2;display:none;"></div>
+          <div class="wlwl_color_palette" data-color_code="#b71c1c" style="background-color: #b71c1c;display:none;"></div>
+          <div class="wlwl_color_palette" data-color_code="#e57373" style="background-color: #e57373;display:none;"></div>
+          <div class="wlwl_color_palette" data-color_code="#e53935" style="background-color: #e53935;display:block;"></div>
+       </div>
+       <div class="color-palette-item" data-background="#8c82fc">
+          <div class="wlwl_color_palette" data-color_code="#e1bee7" style="background-color: #e1bee7;display:none;"></div>
+          <div class="wlwl_color_palette" data-color_code="#4a148c" style="background-color: #4a148c;display:none;"></div>
+          <div class="wlwl_color_palette" data-color_code="#ba68c8" style="background-color: #ba68c8;display:none;"></div>
+          <div class="wlwl_color_palette" data-color_code="#8e24aa" style="background-color: #8e24aa;display:block;"></div>
+       </div>
+       <div class="color-palette-item" data-background="#521262">
+          <div class="wlwl_color_palette" data-color_code="#d1c4e9" style="background-color: #d1c4e9;display:none;"></div>
+          <div class="wlwl_color_palette" data-color_code="#311b92" style="background-color: #311b92;display:none;"></div>
+          <div class="wlwl_color_palette" data-color_code="#9575cd" style="background-color: #9575cd;display:none;"></div>
+          <div class="wlwl_color_palette" data-color_code="#5e35b1" style="background-color: #5e35b1;display:block;"></div>
+       </div>
+       <div class="color-palette-item" data-background="#3490de">
+          <div class="wlwl_color_palette" data-color_code="#bbdefb" style="background-color: #bbdefb;display:none;"></div>
+          <div class="wlwl_color_palette" data-color_code="#64b5f6" style="background-color: #64b5f6;display:none;"></div>
+          <div class="wlwl_color_palette" data-color_code="#1e88e5" style="background-color: #1e88e5;display:none;"></div>
+          <div class="wlwl_color_palette" data-color_code="#0d47a1" style="background-color: #0d47a1;display:block;"></div>
+       </div>
+       <div class="color-palette-item" data-background="#086972">
+          <div class="wlwl_color_palette" data-color_code="#b2dfdb" style="background-color: #b2dfdb;display:none;"></div>
+          <div class="wlwl_color_palette" data-color_code="#004d40" style="background-color: #004d40;display:none;"></div>
+          <div class="wlwl_color_palette" data-color_code="#4db6ac" style="background-color: #4db6ac;display:none;"></div>
+          <div class="wlwl_color_palette" data-color_code="#00897b" style="background-color: #00897b;display:block;"></div>
+       </div>
+       <div class="color-palette-item" data-background="#36622b">
+          <div class="wlwl_color_palette" data-color_code="#c8e6c9" style="background-color: #c8e6c9;display:none;"></div>
+          <div class="wlwl_color_palette" data-color_code="#1b5e20" style="background-color: #1b5e20;display:none;"></div>
+          <div class="wlwl_color_palette" data-color_code="#81c784" style="background-color: #81c784;display:none;"></div>
+          <div class="wlwl_color_palette" data-color_code="#43a047" style="background-color: #43a047;display:block;"></div>
+       </div>
+       <div class="color-palette-item" data-background="#729d39">
+          <div class="wlwl_color_palette" data-color_code="#f0f4c3" style="background-color: #f0f4c3;display:none;"></div>
+          <div class="wlwl_color_palette" data-color_code="#827717" style="background-color: #827717;display:none;"></div>
+          <div class="wlwl_color_palette" data-color_code="#dce775" style="background-color: #dce775;display:none;"></div>
+          <div class="wlwl_color_palette" data-color_code="#c0ca33" style="background-color: #c0ca33;display:block;"></div>
+       </div>
+       <div class="color-palette-item" data-background="#ffb400">
+          <div class="wlwl_color_palette" data-color_code="#fff9c4" style="background-color: #fff9c4;display:none;"></div>
+          <div class="wlwl_color_palette" data-color_code="#f57f17" style="background-color: #f57f17;display:none;"></div>
+          <div class="wlwl_color_palette" data-color_code="#fff176" style="background-color: #fff176;display:none;"></div>
+          <div class="wlwl_color_palette" data-color_code="#fdd835" style="background-color: #fdd835;display:block;"></div>
+       </div>
+       <div class="color-palette-item" data-background="#f08a5d">
+          <div class="wlwl_color_palette" data-color_code="#ffe0b2" style="background-color: #ffe0b2;display:none;"></div>
+          <div class="wlwl_color_palette" data-color_code="#e65100" style="background-color: #e65100;display:none;"></div>
+          <div class="wlwl_color_palette" data-color_code="#ffb74d" style="background-color: #ffb74d;display:none;"></div>
+          <div class="wlwl_color_palette" data-color_code="#fb8c00" style="background-color: #fb8c00;display:block;"></div>
+       </div>
+       <div class="color-palette-item" data-background="#393232">
+          <div class="wlwl_color_palette" data-color_code="#d7ccc8" style="background-color: #d7ccc8;display:none;"></div>
+          <div class="wlwl_color_palette" data-color_code="#3e2723" style="background-color: #3e2723;display:none;"></div>
+          <div class="wlwl_color_palette" data-color_code="#a1887f" style="background-color: #a1887f;display:none;"></div>
+          <div class="wlwl_color_palette" data-color_code="#6d4c41" style="background-color: #6d4c41;display:block;"></div>
+       </div>
+       <div class="color-palette-item" data-background="#52616b">
+          <div class="wlwl_color_palette" data-color_code="#cfd8dc" style="background-color: #cfd8dc;display:none;"></div>
+          <div class="wlwl_color_palette" data-color_code="#263238" style="background-color: #263238;display:none;"></div>
+          <div class="wlwl_color_palette" data-color_code="#90a4ae" style="background-color: #90a4ae;display:none;"></div>
+          <div class="wlwl_color_palette" data-color_code="#546e7a" style="background-color: #546e7a;display:block;"></div>
+       </div>
+       <div class="color-palette-item" data-background="#f67280">
+          <div class="wlwl_color_palette" data-color_code="#e6194b" style="background-color: #e6194b;display:none;"></div>
+          <div class="wlwl_color_palette" data-color_code="#3cb44b" style="background-color: #3cb44b;display:none;"></div>
+          <div class="wlwl_color_palette" data-color_code="#ffe119" style="background-color: #ffe119;display:none;"></div>
+          <div class="wlwl_color_palette" data-color_code="#0082c8" style="background-color: #0082c8;display:none;"></div>
+          <div class="wlwl_color_palette" data-color_code="#f58231" style="background-color: #f58231;display:none;"></div>
+          <div class="wlwl_color_palette" data-color_code="#911eb4" style="background-color: #911eb4;display:none;"></div>
+          <div class="wlwl_color_palette" data-color_code="#46f0f0" style="background-color: #46f0f0;display:none;"></div>
+          <div class="wlwl_color_palette" data-color_code="#f032e6" style="background-color: #f032e6;display:none;"></div>
+          <div class="wlwl_color_palette" data-color_code="#d2f53c" style="background-color: #d2f53c;display:none;"></div>
+          <div class="wlwl_color_palette" data-color_code="#fabebe" style="background-color: #fabebe;display:none;"></div>
+          <div class="wlwl_color_palette" data-color_code="#008080" style="background-color: #008080;display:none;"></div>
+          <div class="wlwl_color_palette" data-color_code="#e6beff" style="background-color: #e6beff;display:none;"></div>
+          <div class="wlwl_color_palette" data-color_code="#aa6e28" style="background-color: #aa6e28;display:none;"></div>
+          <div class="wlwl_color_palette" data-color_code="#fffac8" style="background-color: #fffac8;display:none;"></div>
+          <div class="wlwl_color_palette" data-color_code="#800000" style="background-color: #800000;display:none;"></div>
+          <div class="wlwl_color_palette" data-color_code="#aaffc3" style="background-color: #aaffc3;display:none;"></div>
+          <div class="wlwl_color_palette" data-color_code="#808000" style="background-color: #808000;display:none;"></div>
+          <div class="wlwl_color_palette" data-color_code="#ffd8b1" style="background-color: #ffd8b1;display:none;"></div>
+          <div class="wlwl_color_palette" data-color_code="#000080" style="background-color: #000080;display:none;"></div>
+          <div class="wlwl_color_palette" data-color_code="#808080" style="background-color: #808080;display:none;"></div>
+          <div class="wlwl_color_palette" data-color_code="#FFFFFF" style="background-color: #FFFFFF;display:none;"></div>
+          <div class="wlwl_color_palette" data-color_code="#000000" style="background-color: #000000;display:block;"></div>
+       </div>
+    </div>
+
+
+
+
+    <!--thông báo ảo tung chảo-->
+    <div class="box-noti-fixed show" id="box_noti_fixed">
+        <div class="close-noti active"><i class="fa-solid fa-xmark"></i></div>
+        <div class="noti-reward-fixed" id="noti_reward_fixed"></div>
+    </div>
+    <!---->
+ </div>
+
+
+
+
+
+
+
+
+
+
+<script>
+    const WHEEL_SETTINGS = {
+        "rewards": [
+            {
+                "id": 32088,
+                "sku": "GIFTV20",
+                "name": "Voucher 20%",
+                "image": "https://app.woay.vn/w/8d8c5aa1-34f0-4323-8d17-d3cdc9793f6a/assets/ff3bc3bc-de68-4d63-9ea3-34ce1d58c5e5-5.png"
+            },
+            {
+                "id": 602934,
+                "sku": "GIFT100K",
+                "name": "Voucher 100k",
+                "image": "https://app.woay.vn/w/8d8c5aa1-34f0-4323-8d17-d3cdc9793f6a/assets/c0437703-e07b-40e7-8c8e-766e18299d5c-7.png"
+            },
+            {
+                "id": 32089,
+                "sku": "GIFTV50K",
+                "name": "Voucher 50k",
+                "image": "https://app.woay.vn/w/8d8c5aa1-34f0-4323-8d17-d3cdc9793f6a/assets/0d37b9d6-b969-48a5-b209-ec0ac062658e-8.png"
+            },
+            {
+                "id": 602935,
+                "sku": "GIFT20K",
+                "name": "Voucher 20k",
+                "image": "https://app.woay.vn/w/8d8c5aa1-34f0-4323-8d17-d3cdc9793f6a/assets/b3d1d0bf-72fe-491f-a97d-30ebb3cd3b4e-9.png"
+            },
+            {
+                "id": 602936,
+                "sku": "GIFT10",
+                "name": "Voucher 10%",
+                "image": "https://app.woay.vn/w/8d8c5aa1-34f0-4323-8d17-d3cdc9793f6a/assets/f3feb506-b1fb-4d5a-b8f9-ec2fa4438c0f-6.png"
+            },
+            {
+                "id": 602937,
+                "sku": "GIFT50",
+                "name": "Voucher 50%",
+                "image": "https://app.woay.vn/w/8d8c5aa1-34f0-4323-8d17-d3cdc9793f6a/assets/5b37bfa4-8855-4e32-9af5-cf305b29bc0a-4.png"
+            },
+            {
+                "id": 32090,
+                "sku": "BADLUCK",
+                "name": "Chúc bạn may mắn lần sau",
+                "image": null
+            }
+        ],
+        "image": {
+            "origin": "https://topid.vn/images/logo_light.png"
+        },
+        "arrangement": [
+            602937,
+            602936,
+            32089,
+            32090,
+            32088,
+            602935
+        ],
+        "Wheel": {
+            "SERVER_URL": "https://app.woay.vn",
+            "vertical": true,
+            "WHEEL_ID": "8d8c5aa1-34f0-4323-8d17-d3cdc9793f6a",
+            "form": {
+                "name": {
+                    "name": "Họ và tên",
+                    "enabled": true,
+                    "required": false,
+                    "key": "name"
+                },
+                "phone": {
+                    "name": "Số điện thoại",
+                    "enabled": true,
+                    "required": true,
+                    "unique": true,
+                    "key": "phone"
+                },
+                "email": {
+                    "name": "Email",
+                    "enabled": true,
+                    "required": true,
+                    "unique": false,
+                    "key": "email"
+                },
+                "address": {
+                    "name": "Địa chỉ",
+                    "enabled": false,
+                    "required": false
+                },
+                "identity": {
+                    "name": "CMND / Passport",
+                    "enabled": false,
+                    "required": false
+                },
+                "province": {
+                    "name": "Tỉnh / Thành phố",
+                    "enabled": false,
+                    "required": false,
+                    "type": "select"
+                },
+                "district": {
+                    "name": "Quận / Huyện",
+                    "enabled": false,
+                    "required": false,
+                    "type": "select"
+                },
+                "add_data_1": {
+                    "name": "",
+                    "enabled": false,
+                    "required": false,
+                    "type": "text",
+                    "options": ""
+                },
+                "add_data_2": {
+                    "name": "",
+                    "enabled": false,
+                    "required": false
+                },
+                "add_data_3": {
+                    "name": "",
+                    "enabled": false,
+                    "required": false
+                },
+                "add_data_4": {
+                    "name": "",
+                    "enabled": false,
+                    "required": false
+                },
+                "password": {
+                    "enabled": false,
+                    "name": "Mật khẩu",
+                    "required": true
+                }
+            },
+            "setting": {
+                "woay_border": "https://app.woay.vn/template/4fac6085-9e3a-4517-ae61-3c144273b653/images/border.png",
+                "woay_btn_bg": "https://app.woay.vn/w/c94270d0-a159-40cd-a202-d2aefde296bf/assets/513a1e23-ddf0-4a5b-b190-df1368424cee-Thiết kế không tên (62).png",
+                "woay_btn_text": "https://app.woay.vn/w/c94270d0-a159-40cd-a202-d2aefde296bf/assets/576930cc-0b96-4705-ba91-0eac31031f71-shark.gif",
+                "woay_arrow": "https://app.woay.vn/w/c94270d0-a159-40cd-a202-d2aefde296bf/assets/4dc03639-472c-42ba-ae3f-28da53de8579-Thiết kế không tên (63).png"
+            },
+            "html": "<style>\n    .woay-box-wheel {\n        margin: auto;\n        margin-top: 30px;\n        margin-bottom: 30px;\n        max-width: 720px;\n    }\n    .woay-box-wheel .woay-bg {\n        position: relative;\n        padding-bottom: 100%;\n    }\n    .woay-box-wheel #woay-wheel {\n        position:absolute;\n        width: 92%;\n        left: 4%;\n        top: 4%;\n    }\n    .woay-box-wheel .woay-border {\n        position: absolute;\n        width: 100%;\n        left: 0;\n        top: 0;\n    }\n    .woay-box-wheel .btn-woay {\n        position: absolute;\n        width: 27%;\n        padding-bottom: 27%;\n        left: 36.5%;\n        top: 36.5%;\n        cursor: pointer;\n    }\n    .woay-box-wheel .btn-woay .woay-button-bg {\n        position: absolute;\n        width: 100%;\n        left: 0;\n        top: 0;\n    }\n    .woay-box-wheel .btn-woay .woay-button-text {\n        width: 70%;\n        position: absolute;\n        left: 15%;\n        top: 15%;\n        height: 70%;\n        background-image: url('https://app.woay.vn/w/c94270d0-a159-40cd-a202-d2aefde296bf/assets/576930cc-0b96-4705-ba91-0eac31031f71-shark.gif');\n        background-repeat: no-repeat;\n        background-position: center center;\n        background-size: contain;\n    }\n    \n    .woay-box-wheel .woay-arrow {\n        position: absolute;\n        width: 12%;\n        left: 44%;\n        top: 0;\n    }\n\n</style>\n<div class=\"woay-box-wheel\">\n    <div class=\"woay-bg\">\n            <canvas id=\"woay-wheel\" width=800 height=800></canvas>\n            \n            <img class=\"woay-border\" src=\"https://app.woay.vn/template/4fac6085-9e3a-4517-ae61-3c144273b653/images/border.png\" alt=\"\">\n            \n            <div class=\"btn-woay\">\n                \n                <img class=\"woay-button-bg\" src=\"https://app.woay.vn/w/c94270d0-a159-40cd-a202-d2aefde296bf/assets/513a1e23-ddf0-4a5b-b190-df1368424cee-Thiết kế không tên (62).png\">\n                \n                \n                <div class=\"woay-button-text\"></div>\n                \n            </div>\n            \n            <img class=\"woay-arrow\" src=\"https://app.woay.vn/w/c94270d0-a159-40cd-a202-d2aefde296bf/assets/4dc03639-472c-42ba-ae3f-28da53de8579-Thiết kế không tên (63).png\" alt=\"\">\n            \n        </div>\n</div>",
+            "login_method": "no_auth",
+            "is_test_mode": true,
+            "is_published": true,
+            "is_enable_referral": true,
+            "name": "Vòng quay biển cả - Quick",
+            "is_premium": true,
+            "id": 5621,
+            "layout": {},
+            "images": {},
+            "rules": {},
+            "landing_page": "https://app.woay.vn/w/8d8c5aa1-34f0-4323-8d17-d3cdc9793f6a",
+            "scheme": "quick",
+            "game_type": "wheel",
+            "is_suspended": false,
+            "suspended_reason": "",
+            "password": "WOAY1234",
+            "anti_spam": "phone",
+            "additional_form": false,
+            "campaign_start_at": "2021-08-03T10:15:21.654Z",
+            "campaign_end_at": "2021-12-31T00:00:00.000Z",
+            "design": {
+                "backgrounds": [
+                    {
+                        "backgroundURL": "data:text/plain;#34869C,",
+                        "visual": [
+                            0,
+                            0,
+                            0,
+                            0
+                        ]
+                    },
+                    {
+                        "backgroundURL": "data:text/plain;#80D5DD,",
+                        "visual": [
+                            0,
+                            0,
+                            0,
+                            0
+                        ]
+                    }
+                ],
+                "vertical": true,
+                "bgColors": [
+                    "#34869C",
+                    "#80D5DD"
+                ],
+                "textColors": [
+                    "#000",
+                    "#fff"
+                ]
+            }
+        },
+        "Facebook": {
+            "APP_ID": "325840131530226",
+            "FACEBOOK_REDIRECT_URI": "https://app.woay.vn/api.player/auth/facebook/signin",
+            "ACCOUNTKIT_REDIRECT_URI": "https://app.woay.vn/api.user/accountkit/signin",
+            "FACEBOOK_SIGN_UP_REDIRECT_URI": "https://app.woay.vn/api.player/auth/facebook/signup"
+        },
+        "Zalo": {
+            "APP_ID": "1457164477319165014",
+            "ZALO_REDIRECT_URI": "https://app.woay.vn/api.player/auth/zalo/signin"
+        },
+        "Google": {
+            "APP_ID": "819495967861-2imrcvn92bpic28bci9iboeg6hi2585g.apps.googleusercontent.com",
+            "GOOGLE_REDIRECT_URI": "https://app.woay.vn/api.player/auth/google/signin"
+        }
+    }
+    const randomUser = {
+        "enable": true,
+        "from": 5000,
+        "to": 10000
+    };
+    var RANDOM_USER = randomUser ? randomUser : {
+        enable: true,
+        from: 5000,
+        to: 10000,
+    };
+    // var id_tab = document.getElementById("wTab");
+    // var btns = id_tab.getElementsByClassName("nav-item");
+    // for (var i = 0; i < btns.length; i++) {
+    //     btns[i].addEventListener("click", function() {
+    //         var current = id_tab.getElementsByClassName("active");
+    //         current[0].className = current[0].className.replace(" active", "");
+    //         this.className += " active";
+    //     });
+    // }
+
+    function openTab(tabName) {
+        var i;
+        var x = document.getElementsByClassName("tab-pane");
+        for (i = 0; i < x.length; i++) {
+            x[i].style.display = "none";
+        }
+        document.getElementById(tabName).style.display = "block";
+    }
+
+    var boxNoti = document.getElementById('box_noti_fixed');
+    var boxItem = document.getElementById('noti_reward_fixed');
+
+    document.querySelector('.close-noti').addEventListener("click", function() {
+        boxNoti.classList.add('hidden');
+    })
+
+    function removeClassItem() {
+        boxItem.classList.remove('active');
+        boxItem.classList.remove('item-1');
+        boxItem.classList.remove('item-2');
+        boxItem.classList.remove('item-3');
+        boxItem.classList.remove('text-1');
+        boxItem.classList.remove('text-2');
+    }
+
+    function addItemNoti(name, time, award) {
+        boxNoti.classList.add('show');
+        removeClassItem();
+        document.querySelector('.box-noti-fixed .close-noti').classList.add('active');
+
+// Make a new div
+        const elChild = document.createElement('div');
+        elChild.classList.add('item');
+        elChild.classList.add('active');
+        elChild.innerHTML =
+            '  <div class="content">' +
+            '    <div class="circle"><span class="animated infinite zoomIn"></span></div>' +
+            '    <div class="info-noti">' +
+            '    <div class="name"><b>' + name + '</b> - <span class="time">' + time + '</span></div>' +
+            '    <div class="desc">đã trúng<b> ' + award + '</b></div>' +
+            '   </div>' +
+            ' </div>';
+        boxItem.insertBefore(elChild, boxItem.firstChild);
+
+        if(boxItem.children.length > 1) {
+            boxItem.childNodes[1].classList.add('item-2');
+            boxItem.childNodes[1].classList.remove('active');
+            var num_desc_2 = boxItem.querySelector('.item:nth-child(2) .desc').textContent.length;
+        }
+        if(boxItem.children.length > 2) {
+            boxItem.childNodes[2].classList.add('item-3');
+            boxItem.childNodes[2].classList.remove('item-2');
+            boxItem.childNodes[2].classList.remove('text-1');
+        }
+        if(boxItem.children.length > 3) {
+            boxItem.childNodes[3].remove();
+        }
+
+        var num_desc = boxItem.querySelector('.item:first-child .desc').textContent.length;
+        if(num_desc <= 33 && document.body.clientWidth > 991) {
+            boxItem.querySelector('.active').classList.add('text-1');
+            document.querySelector('.box-noti-fixed .close-noti').classList.add('text-1');
+        } else {
+            document.querySelector('.box-noti-fixed .close-noti').classList.remove('text-1');
+        }
+        if(num_desc_2 > 31) {
+            boxItem.childNodes[1].classList.remove('text-1');
+        }
+    }
+
+
+    function randomItem() {
+        let name = randomName();
+        return {
+            name: name,
+            email: randomEmail(name),
+            reward: randomReward()
+        };
+    }
+
+    function randomReward() {
+        var rewards = WHEEL_SETTINGS.rewards.filter(function(x) { return x.sku != 'BADLUCK' });
+        var len = rewards.length;
+        var index = ~~(Math.random() * len);
+        return rewards[index].name;
+    }
+
+    function randomName() {
+        let names = ['Bảo Vy', 'Cát Tường', 'Gia Hân', 'Hoài An', 'Khả Hân', 'Khánh Ngân', 'Khánh Ngọc', 'Linh Chi', 'Ngọc Khuê', 'Phúc An', 'Thanh Hà', 'Bích Hà', 'Thanh Thúy', 'An Nhiên', 'Bích Thảo', 'Bích Thủy', 'Ðoan Trang', 'Đan Tâm', 'Hiền Nhi', 'Hiền Thục', 'Hương Thảo', 'Minh Tâm', 'Mỹ Tâm', 'Nhã Phương', 'Phương Thùy', 'Phương Trinh', 'Phương Thảo', 'Thanh Mai', 'Thảo Chi', 'Thiên Thanh', 'Thục Quyên', 'Thục Trinh', 'Hương Chi', 'Anh Dũng', 'Anh Minh', 'Anh Tuấn', 'Anh Tú', 'Anh Thái', 'Anh Khoa', 'Bảo Khánh', 'Bảo Khang', 'Bảo Long', 'Chấn Hưng', 'Chấn Phong', 'Chí Kiên', 'Chí Thanh', 'Chiến Thắng', 'Ðăng Khoa', 'Ðức Bình', 'Ðức Tài', 'Ðức Toàn', 'Ðức Thắng', 'Đình Trung', 'Đình Phúc', 'Đông Quân', 'Đức Duy', 'Gia Bảo', 'Gia Huy', 'Gia Hưng', 'Gia Khánh', 'Hải Đăng', 'Hạo Nhiên', 'Hoàng Phi', 'Hùng Cường', 'Huy Hoàng', 'Hữu Đạt', 'Hữu Nghĩa', 'Hữu Phước', 'Hữu Tâm', 'Hữu Thiện', 'Kiến Văn', 'Khôi Nguyên', 'Khôi Vĩ', 'Mạnh Hùng', 'Mạnh Khôi', 'Minh Anh', 'Minh Đức', 'Minh Khang', 'Minh Khôi', 'Minh Nhật', 'Minh Quang', 'Minh Quân', 'Minh Triết', 'Ngọc Minh', 'Nhân Nghĩa', 'Nhân Văn', 'Nhật Minh', 'Phúc Điền', 'Phúc Hưng', 'Phúc Lâm', 'Phúc Thịnh', 'Quang Khải', 'Quang Vinh', 'Quốc Bảo', 'Quốc Trung', 'Sơn Quân', 'Tài Đức', 'Tấn Phát', 'Tấn Phong', 'Toàn Thắng', 'Tuấn Kiệt', 'Tùng Quân', 'Thạch Tùng', 'Thái Dương', 'Thái Sơn', 'Thành Công', 'Thành Đạt', 'Thanh Liêm', 'Thanh Phong', 'Thanh Tùng', 'Thanh Thế', 'Thiên Ân', 'Thiện Ngôn', 'Thiện Nhân', 'Thiện Tâm', 'Thông Đạt', 'Thụ Nhân', 'Trọng Nghĩa', 'Trung Dũng', 'Trung Kiên', 'Trung Nghĩa', 'Trường An', 'Trường Phúc', 'Trường Sơn', 'Uy Vũ', 'Xuân Trường'];
+        var fnames = ['Nguyễn', 'Trần', 'Lê', 'Hồ', 'Bùi', 'Lâm', 'Vũ', 'Phan'];
+        let index1 = ~~(Math.random() * names.length);
+        let index2 = ~~(Math.random() * fnames.length);
+        return fnames[index2] + ' ' + names[index1];
+    }
+
+    function randomEmail(name) {
+        let parts = nameToParts(name);
+        let type = ~~(Math.random() * 3);
+        let arr = [];
+        if (type == 1) arr = [randomDate()];
+        if (type == 2) arr = [~~(Math.random() * 20) + 80 + (Math.random() > 0.5 ? 1900 : 0)];
+        let joiner = ['', '.', '_'][~~(Math.random() * 3)];
+        return parts.concat(arr).join(joiner) + '@' + randomEmailDomain();
+    }
+
+    function nameToParts(_name) {
+        let type = ~~(Math.random() * 3);
+        let name = uname(_name).toLowerCase();
+        let arr = name.split(' ');
+
+        switch (type) {
+            case 0:
+                return [arr.pop(), arr[0]];
+            case 1:
+                return arr;
+            case 2:
+                arr.shift();
+                return arr;
+        }
+    }
+
+    function uname(str) {
+        str = str.replace(/à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ/g, "a");
+        str = str.replace(/è|é|ẹ|ẻ|ẽ|ê|ề|ế|ệ|ể|ễ/g, "e");
+        str = str.replace(/ì|í|ị|ỉ|ĩ/g, "i");
+        str = str.replace(/ò|ó|ọ|ỏ|õ|ô|ồ|ố|ộ|ổ|ỗ|ơ|ờ|ớ|ợ|ở|ỡ/g, "o");
+        str = str.replace(/ù|ú|ụ|ủ|ũ|ư|ừ|ứ|ự|ử|ữ/g, "u");
+        str = str.replace(/ỳ|ý|ỵ|ỷ|ỹ/g, "y");
+        str = str.replace(/đ/g, "d");
+        str = str.replace(/À|Á|Ạ|Ả|Ã|Â|Ầ|Ấ|Ậ|Ẩ|Ẫ|Ă|Ằ|Ắ|Ặ|Ẳ|Ẵ/g, "A");
+        str = str.replace(/È|É|Ẹ|Ẻ|Ẽ|Ê|Ề|Ế|Ệ|Ể|Ễ/g, "E");
+        str = str.replace(/Ì|Í|Ị|Ỉ|Ĩ/g, "I");
+        str = str.replace(/Ò|Ó|Ọ|Ỏ|Õ|Ô|Ồ|Ố|Ộ|Ổ|Ỗ|Ơ|Ờ|Ớ|Ợ|Ở|Ỡ/g, "O");
+        str = str.replace(/Ù|Ú|Ụ|Ủ|Ũ|Ư|Ừ|Ứ|Ự|Ử|Ữ/g, "U");
+        str = str.replace(/Ỳ|Ý|Ỵ|Ỷ|Ỹ/g, "Y");
+        str = str.replace(/Đ/g, "D");
+        return str;
+    }
+
+    function randomDate() {
+        return (~~(Math.random() * 28) + 1) + '' + (~~(Math.random() * 12) + 1);
+    }
+
+
+    function randomEmailDomain() {
+        let domains = ['gmail.com', 'yahoo.com', 'hotmail.com', 'icloud.com'];
+        let index = ~~(Math.random() * domains.length);
+        return domains[index];
+    }
+
+    if (RANDOM_USER.enable) {
+        var t = getTime();
+        setTimeout(() => {
+            recentPlayer();
+        }, 1000);
+    }
+
+    function randomInt(N) {
+        return ~~(Math.random() * N);
+    }
+
+    function getTime() {
+        var t = RANDOM_USER.from + randomInt(RANDOM_USER.to - RANDOM_USER.from);
+        return t;
+    }
+
+    function recentPlayer() {
+        item = randomItem();
+        addItemNoti(item.name, 'vài giây trước', item.reward);
+
+        var t = getTime();
+        setTimeout(recentPlayer, t);
+    }
+</script>
+
+
+
+</body>
+</html>
